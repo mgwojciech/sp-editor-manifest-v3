@@ -36,7 +36,7 @@ export class ContextFactory {
                     let url = new URL(urlString);
                     let tenant = url.origin;
                     let siteRegex = /https?:\/\/(?<hostName>[\w.]*)(\/sites\/.*?(\/|$)|$|\/)/;
-                    let regexMatch = urlString.match(siteRegex);
+                    let regexMatch = (url.origin + url.pathname).match(siteRegex);
                     if (regexMatch) {
                         let siteUrl = regexMatch[0];
                         if (siteUrl.lastIndexOf("/") === siteUrl.length - 1) {
